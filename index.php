@@ -1,5 +1,19 @@
 <?php  
-
+	include_once("classes/User.class.php");
+	$salt = "#WeAreIMD!";
+	if (isset($_POST["btnRegister"])) {
+		try {
+			$user = new User();
+			$user->Name = $_POST["nameReg"];
+			$user->Street = $_POST["street"];
+			$user->City = $_POST["city"];
+			$user->Phone = $_POST["phone"];
+			$user->Password = md5($_POST["passwordReg"].$salt);
+			$user->Save();
+		} catch (Exception $e) {
+			$error = $e->getMessage();
+		}
+	}
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -30,9 +44,16 @@
 			<a href="#" id="register">Register</a>
 	</form>
 	<form action="" method="post" id="registerForm">
+		<?php  
+			if (isset($error)) {
+				echo "<p class='bg-danger'>$error</p>";
+			}
+		?>
 		<input type="text" name="nameReg" placeholder="Name">
 		<input type="text" name="street" placeholder="Street">
 		<input type="text" name="city" placeholder="City">
+		<input type="tel" name="phone" placeholder="Phonenumber">
+		<input type="password" name="passwordReg" placeholder="Password">
 		<input type="submit" value="Register" name="btnRegister">
 	</form>
 	</div>
