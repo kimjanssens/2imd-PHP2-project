@@ -4,15 +4,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Restuarant web app</title>
+	<title>Restaurant web app</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/screen.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script>
-		function show(){
-			document.getElementById("registerForm").style.display="block";
-		}
+	$(document).ready(function(){
+		$("#registerForm").hide();
+		$("#register").click(function() {
+  			$( "#registerForm" ).slideToggle( "slow" );
+		});
+	});
 	</script>
 </head>
 <body>
@@ -23,7 +26,8 @@
 			<input type="text" name="name" placeholder="Name">
 			<input type="password" name="password" placeholder="Password">
 			<input type="submit" value="Login" name="btnLogin">
-			<a href="#" onclick="show()">Register</a>
+			
+			<a href="#" id="register">Register</a>
 	</form>
 	<form action="" method="post" id="registerForm">
 		<input type="text" name="nameReg" placeholder="Name">
