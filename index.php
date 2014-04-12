@@ -1,6 +1,7 @@
 <?php  
 	include_once("classes/User.class.php");
 	$feedback = "";
+	$feedbackLogin = "";
 	if (isset($_POST["btnRegister"])) {
 		try {
 			$user = new User();
@@ -14,6 +15,21 @@
 			$feedback = "Thanks for signin up!";
 		} catch (Exception $e) {
 			$error = $e->getMessage();
+		}
+	}
+	
+	if(!empty($_POST['btnLogin']))
+	{
+		try {
+			$u = new User();
+			$u->Name = $_POST['username'];
+			$u->Password = $_POST['loginPassword'];
+			$u->Login();
+			
+            $feedbackLogin = "Inloggen gelukt!";
+			
+		} catch (Exception $e) {
+			$errorLogin= $e->getMessage();
 		}
 	}
 ?><!doctype html>
@@ -31,8 +47,16 @@
 		<h1>Restaurant app</h1>
 		<h2>Login to continue...</h2>
 		<form action="" method="post">
-			<input type="text" name="name" placeholder="Name">
-			<input type="password" name="password" placeholder="Password">
+			<?php  
+				if (isset($errorLogin)) {
+					echo "<p class='bg-danger'>$errorLogin</p>";
+				}
+				if (!empty($feedbackLogin)) {
+					echo "<p class='bg-success'>$feedbackLogin</p>";
+				}
+			?>
+			<input type="text" name="username" placeholder="Name">
+			<input type="password" name="loginPassword" placeholder="Password">
 			<input type="submit" value="Login" name="btnLogin">
 		</form>
 		<form action="" method="post" id="registerForm">

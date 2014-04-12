@@ -75,5 +75,26 @@
 				)";
 			$db->conn->query($sql);
 		}
+		
+		public function Login()
+		{
+			$db = new Db();
+			$sql = "SELECT * from tbl_users WHERE name = '".$db->conn->real_escape_string($this->m_sName)."' AND password = '".$db->conn->real_escape_string($this->m_sPassword)."';";
+			
+			$result = $db->conn->query($sql);
+			
+			if($result->num_rows ==1)
+			{
+				session_start();
+				$_SESSION['username'] = $this->Name;
+				$_SESSION['loggedinPassword'] = $this->Password;
+				$_SESSION['loggedin'] = true;
+				//header('Location: nextpage.php');
+			}
+			else
+			{
+				throw new Exception("Username and/or password are invalid.");	
+			}	
+		}
 	}
 ?>
