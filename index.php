@@ -13,6 +13,13 @@
 			$user->Save();
 
 			$feedback = "Thanks for signin up!";
+			
+			session_start();
+            $_SESSION['username'] = $u->Name;
+            $_SESSION['loggedinPassword'] = $u->Password;
+            $_SESSION['loggedin'] = true;
+            //header('Location: nextpage.php');
+			
 		} catch (Exception $e) {
 			$error = $e->getMessage();
 		}
