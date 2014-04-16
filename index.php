@@ -62,9 +62,9 @@
 					echo "<p class='bg-success'>$feedbackLogin</p>";
 				}
 			?>
-			<input type="text" name="username" placeholder="Name">
-			<input type="password" name="loginPassword" placeholder="Password">
-			<input type="submit" value="Login" name="btnLogin">
+			<input type="text" name="username" class="form-control" placeholder="Name">
+			<input type="password" name="loginPassword" class="form-control" placeholder="Password">
+			<input type="submit" value="Login" class="btn btn-primary" name="btnLogin">
 		</form>
 		<form action="" method="post" id="registerForm">
 			<?php  
@@ -75,12 +75,12 @@
 					echo "<p class='bg-success'>$feedback</p>";
 				}
 			?>
-			<input type="text" name="nameReg" placeholder="Name" value="<?php if(isset($_POST['nameReg'])){echo $_POST['nameReg'];} ?>">
-			<input type="text" name="street" placeholder="Street" value="<?php if(isset($_POST['street'])){echo $_POST['street'];} ?>">
-			<input type="text" name="city" placeholder="City" value="<?php if(isset($_POST['city'])){echo $_POST['city'];} ?>">
-			<input type="tel" name="phone" placeholder="Phonenumber" value="<?php if(isset($_POST['phone'])){echo $_POST['phone'];} ?>">
-			<input type="password" name="passwordReg" placeholder="Password">
-			<input type="submit" value="Register" name="btnRegister">
+			<input type="text" name="nameReg" id="nameReg" class="form-control" placeholder="Name" value="<?php if(isset($_POST['nameReg'])){echo $_POST['nameReg'];} ?>">
+			<input type="text" name="street" class="form-control" placeholder="Street" value="<?php if(isset($_POST['street'])){echo $_POST['street'];} ?>">
+			<input type="text" name="city" class="form-control" placeholder="City" value="<?php if(isset($_POST['city'])){echo $_POST['city'];} ?>">
+			<input type="tel" name="phone" class="form-control" placeholder="Phonenumber" value="<?php if(isset($_POST['phone'])){echo $_POST['phone'];} ?>">
+			<input type="password" name="passwordReg" class="form-control" placeholder="Password">
+			<input type="submit" value="Register" class="btn btn-primary" name="btnRegister">
 		</form>
 	</div>
 </body>
