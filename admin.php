@@ -1,44 +1,25 @@
 <?php  
-	include_once("classes/User.class.php");
 	$feedback = "";
 	$feedbackLogin = "";
-	if (isset($_POST["btnRegister"])) {
-		try {
-			$user = new User();
-			$user->Name = $_POST["nameReg"];
-			$user->Street = $_POST["street"];
-			$user->City = $_POST["city"];
-			$user->Phone = $_POST["phone"];
-			$user->Password = $_POST["passwordReg"];
-			$user->Save();
-
-			$feedback = "Thanks for signin up!";
-			
-			session_start();
-            $_SESSION['username'] = $u->Name;
-            $_SESSION['loggedinPassword'] = $u->Password;
-            $_SESSION['loggedin'] = true;
-            //header('Location: nextpage.php');
-			
-		} catch (Exception $e) {
-			$error = $e->getMessage();
-		}
+	session_start();
+	if ($_SESSION['type']=='admin') {
+        if(isset($_POST['btnAddRestaurant']))
+        {
+            include_once("classes/Resto.class.php");
+            $r = new Resto();
+            $r->Name = $_POST["restaurantname"];
+			$r->Street = $_POST["street"];
+			$r->Number = $_POST["number"];
+			$r->City = $_POST["city"];
+            $r->Save();
+            
+            $feedback = "Restaurant "+$_POST["restaurantname"]+" geregistreerd.";
+        }
 	}
-	
-	if(!empty($_POST['btnLogin']))
-	{
-		try {
-			$u = new User();
-			$u->Name = $_POST['username'];
-			$u->Password = $_POST['loginPassword'];
-			$u->Login();
-			
-            $feedbackLogin = "Inloggen gelukt!";
-			
-		} catch (Exception $e) {
-			$errorLogin= $e->getMessage();
-		}
-	}
+	else
+    {
+        header('Location: index.php');
+    }
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -55,19 +36,6 @@
 		<h2>Login to continue...</h2>
 		<form action="" method="post">
 			<?php  
-				if (isset($errorLogin)) {
-					echo "<p class='bg-danger'>$errorLogin</p>";
-				}
-				if (!empty($feedbackLogin)) {
-					echo "<p class='bg-success'>$feedbackLogin</p>";
-				}
-			?>
-			<input type="text" name="username" class="form-control" placeholder="Name">
-			<input type="password" name="loginPassword" class="form-control" placeholder="Password">
-			<input type="submit" value="Login" class="btn btn-primary" name="btnLogin">
-		</form>
-		<form action="" method="post" id="registerForm">
-			<?php  
 				if (isset($error)) {
 					echo "<p class='bg-danger'>$error</p>";
 				}
@@ -75,12 +43,12 @@
 					echo "<p class='bg-success'>$feedback</p>";
 				}
 			?>
-			<input type="text" name="nameReg" id="nameReg" class="form-control" placeholder="Name" value="<?php if(isset($_POST['nameReg'])){echo $_POST['nameReg'];} ?>">
-			<input type="text" name="street" class="form-control" placeholder="Street" value="<?php if(isset($_POST['street'])){echo $_POST['street'];} ?>">
-			<input type="text" name="city" class="form-control" placeholder="City" value="<?php if(isset($_POST['city'])){echo $_POST['city'];} ?>">
-			<input type="tel" name="phone" class="form-control" placeholder="Phonenumber" value="<?php if(isset($_POST['phone'])){echo $_POST['phone'];} ?>">
-			<input type="password" name="passwordReg" class="form-control" placeholder="Password">
-			<input type="submit" value="Register" class="btn btn-primary" name="btnRegister">
+			<h2>Voeg een restaurant toe</h2>
+			<input type="text" name="restaurantname" class="form-control" placeholder="Restaurant naam">
+			<input type="text" name="street" class="form-control" placeholder="Street">
+			<input type="text" name="number" class="form-control" placeholder="Number">
+			<input type="text" name="city" class="form-control" placeholder="Stad">
+			<input type="submit" value="Login" class="btn btn-primary" name="btnAddRestaurant">
 		</form>
 	</div>
 </body>

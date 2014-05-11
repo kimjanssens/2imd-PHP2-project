@@ -89,7 +89,12 @@
 				$_SESSION['username'] = $this->Name;
 				$_SESSION['loggedinPassword'] = $this->Password;
 				$_SESSION['loggedin'] = true;
-				//header('Location: nextpage.php');
+				$_SESSION['type']='admin';
+				foreach ($result as $id)
+                {
+                    $_SESSION['eigenId'] = $id['id'];
+                }
+				header('Location: admin.php');
 			}
 			else
 			{
