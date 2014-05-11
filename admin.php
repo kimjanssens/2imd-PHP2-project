@@ -3,16 +3,16 @@
 	$feedbackLogin = "";
 	session_start();
 	if ($_SESSION['type']=='admin') {
+        include_once("classes/Resto.class.php");
+        $r = new Resto();
+        
         if(isset($_POST['btnAddRestaurant']))
         {
-            include_once("classes/Resto.class.php");
-            $r = new Resto();
             $r->Name = $_POST["restaurantname"];
 			$r->Street = $_POST["street"];
 			$r->Number = $_POST["number"];
 			$r->City = $_POST["city"];
             $r->Save();
-            
             $feedback = "Restaurant "+$_POST["restaurantname"]+" geregistreerd.";
         }
 	}
@@ -33,7 +33,9 @@
 <body>
 	<div class="container">
 		<h1>Restaurant app</h1>
-		<h2>Login to continue...</h2>
+		<?php
+		    $r->GetRestaurants();
+		?>
 		<form action="" method="post">
 			<?php  
 				if (isset($error)) {
@@ -48,7 +50,7 @@
 			<input type="text" name="street" class="form-control" placeholder="Street">
 			<input type="text" name="number" class="form-control" placeholder="Number">
 			<input type="text" name="city" class="form-control" placeholder="Stad">
-			<input type="submit" value="Login" class="btn btn-primary" name="btnAddRestaurant">
+			<input type="submit" value="Maak restaurant" class="btn btn-primary" name="btnAddRestaurant">
 		</form>
 	</div>
 </body>
