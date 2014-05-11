@@ -5,6 +5,9 @@
 		private $m_sStreet;
 		private $m_sCity;
 		private $m_iNumber;
+		private $m_iAmount;
+		private $m_iSeats;
+		private $m_iRestoId;
 
 		public function __set($p_sProperty, $p_vValue){
 			switch ($p_sProperty) {
@@ -32,6 +35,21 @@
 					}
 					$this->m_sCity = $p_vValue;
 					break;
+				case "Amount":
+					if (empty($p_vValue)) {
+						throw new Exception("Aantal tafels veld is leeg.");
+					}
+					$this->m_iAmount = $p_vValue;
+					break;
+				case "Seats":
+					if (empty($p_vValue)) {
+						throw new Exception("Aantal zitplaatsen veld is leeg.");
+					}
+					$this->m_iSeats = $p_vValue;
+					break;
+				case "RestoId":
+					$this->m_iRestoId = $p_vValue;
+					break;
 			}
 		}
 		public function __get($p_sProperty){
@@ -42,11 +60,17 @@
 				case "Street":
 					return $this->m_sStreet;
 					break;
-				case "City":
+				case "Number":
 					return $this->m_iNumber;
 					break;
-				case "Phone":
-					return $this->m_sCity;
+				case "Amount":
+					return $this->m_iAmount;
+					break;
+				case "Seats":
+					return $this->m_iSeats;
+					break;
+				case "RestoId":
+					return $this->m_iRestoId;
 					break;
 			}
 		}
@@ -89,5 +113,17 @@
             
             return $restaurantArray;
         }
+        
+        public function SaveTables(){
+			$db = new Db();
+			for ($i = 0; $i < $this->m_iAmount; $i++)
+            {
+                $sql = "INSERT INTO tbl_tables (restaurant_id, seatsnumber) VALUES (
+				'".$db->conn->real_escape_string($this->m_iRestoId)."',
+				'".$db->conn->real_escape_string($this->m_iSeats)."'
+				)";
+			    $db->conn->query($sql);
+            }
+		}
 	}
 ?>
