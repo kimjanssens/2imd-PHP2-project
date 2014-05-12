@@ -93,10 +93,10 @@
 			$results = $db->conn->query($sql);
 
 			foreach($results as $result){
-				echo "<li>";
+				echo "<li><a href='tablereservation.php?id=".$result['id']."'>";
 				echo "<h3>".$result['name']."</h3>";
 				echo "<p>".$result['street'].", <strong>".$result['city']."</strong></p>";
-				echo "</li>";
+				echo "</a></li>";
 			}
 		}
 
