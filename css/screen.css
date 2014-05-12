@@ -59,3 +59,24 @@ form input{
 form p{
 	padding: 5px;
 }
+#allRestaurants{
+	-webkit-padding-start: 0px;
+}
+#allRestaurants li{
+	background-color: #E8DDCC;
+	padding-left: 10px;
+	list-style: none;
+	color: #801600;
+}
+#profile{
+	background-color: #E8D191;
+	padding: 10px;
+
+}
+#profile img{
+	border-radius: 50px;
+	margin-right: 10px;
+}
+#profile #logout{
+	float: right;
+}
