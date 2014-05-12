@@ -30,7 +30,7 @@
 	<div class="container">
 		<?php
 		    $r->GetRestaurants();
-		    echo "<h2>".$restaurantArray[0]['name']." details</h2>"; 
+		    echo "<input type='button' id='btnRemoveRestaurant' value='Verwijder restaurant'/>";
 		?>
 		
         <div class="container" id="restaurantdata">

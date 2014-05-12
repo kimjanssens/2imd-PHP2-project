@@ -1,11 +1,11 @@
 <?php
-	if (isset($_POST["tableId"])) {
+	if (isset($_POST["restoId"])) {
 		try {
 			include_once('../classes/Resto.class.php');
 			$r = new Resto();
-			$r->RemoveTable($_POST["tableId"]);
+			$r->RemoveRestaurant($_POST["restoId"]);
 
-            $response["feedback"] = "Tafel verwijderd.";
+            $response["feedback"] = "Restaurant verwijderd.";
 		} catch (Exception $e) {
 			$response["feedback"] = $e->getMessage();
 		}

@@ -9,8 +9,7 @@ function load(){
         var restaurantdiv = $("#restaurantdata");
         restaurantdiv.html("<h1>"+msg.restaurant_name+"</h1>");
         restaurantdiv.append("<span style='display:none' class='restoId'>"+msg.restaurant_id+"</span>");
-        restaurantdiv.append("<h2>"+msg.restaurant_street+"</h2>");
-        restaurantdiv.append("<input type='button' class='btnRemoveRestaurant' value='Verwijder restaurant'/>");
+        restaurantdiv.append("<ul><li>"+msg.restaurant_street+" "+msg.restaurant_number+"</li><li>"+msg.restaurant_city+"</li></ul>");
     });
 };
 $(document).ready(function(){
@@ -34,8 +33,22 @@ $(document).ready(function(){
         })
         .done(function( msg ){
             var restaurantdiv = $(".container");
-            restaurantdiv.append("<p>"+msg.feedback+"</p>");
+            restaurantdiv.append("<p class='bg-success'>"+msg.feedback+"</p>");
             listitem.fadeOut(1000);
+        });
+    });
+    
+    $('#btnRemoveRestaurant').on('click', function(e){
+        var restoId = $(this).parent().find('.restoId');
+        $.ajax({
+            type: "POST",
+            url: "ajax/remove_restaurant.php",
+            data: {restoId: restoId.text()},
+            dataType: "json"
+        })
+        .done(function( msg ){
+            var restaurantdiv = $("#restaurantdata");
+            restaurantdiv.html("<p class='bg-success'>"+msg.feedback+"</p>");
         });
     });
 });

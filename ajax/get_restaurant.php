@@ -12,6 +12,8 @@
             {
                 $response["restaurant_name"] = $field['name'];
                 $response["restaurant_street"] = $field['street'];
+                $response["restaurant_number"] = $field['number'];
+                $response["restaurant_city"] = $field['city'];
                 $response["restaurant_id"] = $field['id'];
             }
 		} catch (Exception $e) {
