@@ -5,6 +5,9 @@
 	if ($_SESSION['type']=='admin') {
         include_once("classes/Resto.class.php");
         $r = new Resto();
+        
+        $restaurantId = $_SESSION['currentRestaurantId'];
+        $restaurantArray = $r->GetRestaurantDetails($restaurantId);
 	}
 	else
     {
@@ -25,9 +28,9 @@
 	
 	<?php include_once("includes/nav_include.php"); ?>
 	<div class="container">
-		<h2>Add a restaurant</h2>
 		<?php
 		    $r->GetRestaurants();
+		    echo "<h2>".$restaurantArray[0]['name']." details</h2>"; 
 		?>
 		
         <div class="container" id="restaurantdata">

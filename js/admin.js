@@ -1,4 +1,4 @@
-    function load(){
+function load(){
     $.ajax({
         type: "POST",
         url: "ajax/get_restaurant.php",
@@ -6,12 +6,11 @@
         dataType: "json"
     })
     .done(function( msg ){
-        for(var i=0; i<msg.restaurant_name.length; i++)
-        {
-            $("#restaurantdata").html("<h1>"+msg.restaurant_name+"</h1>");
-        }
+        var restaurantdiv = $("#restaurantdata");
+        restaurantdiv.html("<h1>"+msg.restaurant_name+"</h1>");
+        restaurantdiv.append("<h2>"+msg.restaurant_street+"</h2>");
     });
-    };
+};
 $(document).ready(function(){
     $('#restaurants').on('change', function(e){
         load();

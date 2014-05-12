@@ -101,3 +101,36 @@ form p{
 	width: 33%;
 	text-align: center;
 }
+
+nav
+{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+nav a
+{
+    display: block;
+    float: left;
+    width: 33.33%;
+    background-color: #E8D191;
+    color: #382A1A;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+}
+
+nav a:hover
+{
+    background-color: #E8DDCC;
+    color: #382A1A;
+}
+
+/*KLEUREN
+E8D191
+FFFFFF
+E8DDCC
+382A1A
+801600
+*/

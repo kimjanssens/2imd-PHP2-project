@@ -11,6 +11,7 @@
 			foreach($check as $field)
             {
                 $response["restaurant_name"] = $field['name'];
+                $response["restaurant_street"] = $field['street'];
             }
 		} catch (Exception $e) {
 			$response["restaurant_name"] = $e->getMessage();
