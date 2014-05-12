@@ -104,7 +104,7 @@
 			$results = $db->conn->query($sql);
 
 			foreach($results as $result){
-				echo "<li><a href='tablereservation.php?id=".$result['id']."'>";
+				echo "<li><a href='restaurant-tables.php?id=".$result['id']."'>";
 				echo "<h3>".$result['name']."</h3>";
 				echo "<p>".$result['street'].", <strong>".$result['city']."</strong></p>";
 				echo "</a></li>";
@@ -125,7 +125,7 @@
 			$results = $db->conn->query($sql);
             echo "<ul id='tables'>";
 			foreach ($results as $result) {
-				echo "<li>";
+				echo "<li><a href='tablereservation.php?id='".$result['id']."'";
 				    echo "<span class='tableId' style='display: none;'>".$result['id']."</span>";
 				    echo "<span>Tafel nummer: ".$result['table_nr']."</span>";
 				    echo "<span>Zitplaatsen: ".$result['seats']."</span>";
@@ -138,7 +138,7 @@
                         echo "<span>Geboekt</span>";
                     }
 				    echo "<span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
-				echo "</li>";
+				echo "</a></li>";
 			}
 			echo "</ul>";
 		}
