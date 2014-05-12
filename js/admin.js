@@ -22,6 +22,16 @@ $(document).ready(function(){
     });
     
     $('.btnRemoveTable').on('click', function(e){
-        
+        var tableId = $(this).parent().siblings('.tableId').text();
+        $.ajax({
+            type: "POST",
+            url: "ajax/remove_table.php",
+            data: {tableId: tableId},
+            dataType: "json"
+        })
+        .done(function( msg ){
+            var restaurantdiv = $("#restaurantdata");
+            restaurantdiv.html("<p>"+msg.feedback+"</p>");
+        });
     });
 });
