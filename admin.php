@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/screen.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="js/admin.js" type="text/javascript"></script>
 </head>
 <body onload="load()">
 	
@@ -58,25 +59,5 @@
 			<input type="submit" value="Add" class="btn btn-primary" name="btnAddRestaurant">
 		</form>
 	</div>
-	<script>
-	       function load(){
-	            $.ajax({
-                    type: "POST",
-                    url: "ajax/get_restaurant.php",
-                    data: {restaurant: $('#restaurants').val()},
-                    dataType: "json"
-                })
-                .done(function( msg ){
-                    for(var i=0; i<msg.restaurant_name.length; i++)
-                    {
-                        $("#restaurantdata").html("<h1>"+msg.restaurant_name+"</h1>");
-                    }
-                });
-	        };
-	        $('#restaurants').on('change', function(e){
-	            load();
-                e.preventDefault();
-	        });
-	</script>
 </body>
 </html>
