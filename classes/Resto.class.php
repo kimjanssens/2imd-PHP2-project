@@ -86,6 +86,19 @@
 			$db->conn->query($sql);
 		}
 		
+		public function GetAll(){
+			$db = new Db();
+            $sql = "SELECT * from tbl_restaurants;";
+			$results = $db->conn->query($sql);
+
+			foreach($results as $result){
+				echo "<li>";
+				echo $result['name'];
+				echo "<p>".$result['street'].", <strong>".$result['city']."</strong></p>";
+				echo "</li>";
+			}
+		}
+
 		public function GetRestaurants()
         {
             $db = new Db();
