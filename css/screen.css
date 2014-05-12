@@ -27,6 +27,9 @@ h2{
 	margin-top: 20%;
 	width: 400px;
 }
+#loginWindow form{
+	padding: 0px;
+}
 #fb-login{
 	background-color: #3b5998;
 	color: white;
@@ -41,10 +44,8 @@ h2{
 	width: 40px;
 	margin-right: 10px;
 }
-#registerForm{
-	padding: 10px;
-}
 form{
+	padding: 10px;
 	background-color: #E8DDCC;
 	border-radius: 10px;
 	border-radius: 5px;
