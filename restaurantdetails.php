@@ -7,18 +7,9 @@
         
         if($_SESSION['type']== 'admin')
         {
-            $restaurantId = $_GET['id'];
-            $ownerId = $_GET['userid'];
+            $restaurantId = $_SESSION['currentRestaurantId'];
             
-            if($ownerId == $_SESSION['eigenId'])
-            {
-                $restaurantArray = $r->GetRestaurantDetails($restaurantId);
-            }
-            
-            else
-            {
-                header('Location: admin.php');
-            }
+            $restaurantArray = $r->GetRestaurantDetails($restaurantId);
             
             if(isset($_POST['btnAddTable']))
             {
@@ -31,7 +22,7 @@
     }
     else
     {
-        header('Location: admin.php');
+        header('Location: adminlogin.php');
     }
 ?><!doctype html>
 <html lang="en">
