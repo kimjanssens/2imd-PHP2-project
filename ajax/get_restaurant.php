@@ -12,6 +12,7 @@
             {
                 $response["restaurant_name"] = $field['name'];
                 $response["restaurant_street"] = $field['street'];
+                $response["restaurant_id"] = $field['id'];
             }
 		} catch (Exception $e) {
 			$response["restaurant_name"] = $e->getMessage();

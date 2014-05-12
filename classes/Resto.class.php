@@ -215,5 +215,14 @@
 
             $db->conn->query($sql);
         }
+        
+        public function RemoveRestaurant($restoId)
+        {
+            $db = new Db();
+            
+            $sql = "DELETE FROM tbl_restaurants WHERE id = ".$db->conn->real_escape_string($restoId).";";
+
+            $db->conn->query($sql);
+        }
 	}
 ?>

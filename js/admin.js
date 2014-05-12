@@ -8,6 +8,7 @@ function load(){
     .done(function( msg ){
         var restaurantdiv = $("#restaurantdata");
         restaurantdiv.html("<h1>"+msg.restaurant_name+"</h1>");
+        restaurantdiv.append("<span style='display:none' class='restoId'>"+msg.restaurant_id+"</span>");
         restaurantdiv.append("<h2>"+msg.restaurant_street+"</h2>");
         restaurantdiv.append("<input type='button' class='btnRemoveRestaurant' value='Verwijder restaurant'/>");
     });
