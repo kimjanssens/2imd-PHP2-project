@@ -22,16 +22,18 @@ $(document).ready(function(){
     });
     
     $('.btnRemoveTable').on('click', function(e){
-        var tableId = $(this).parent().siblings('.tableId').text();
+        var tableId = $(this).parent().siblings('a').find('.tableId');
+        var listitem = $(this).parent().parent();
         $.ajax({
             type: "POST",
             url: "ajax/remove_table.php",
-            data: {tableId: tableId},
+            data: {tableId: tableId.text()},
             dataType: "json"
         })
         .done(function( msg ){
             var restaurantdiv = $(".container");
             restaurantdiv.append("<p>"+msg.feedback+"</p>");
+            listitem.fadeOut(1000);
         });
     });
 });
