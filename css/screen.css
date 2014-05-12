@@ -127,10 +127,14 @@ nav a:hover
     color: #382A1A;
 }
 
-/*KLEUREN
-E8D191
-FFFFFF
-E8DDCC
-382A1A
-801600
-*/
+#restaurants
+{
+    margin-right: 1em;
+}
+
+#restaurantdata ul
+{
+    list-style: none;
+    font-size: 1.3em;
+    color: #E8DDCC;
+}
