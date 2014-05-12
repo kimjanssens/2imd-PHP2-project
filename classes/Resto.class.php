@@ -115,8 +115,9 @@
         
         public function GetRestaurantDetails($id = null)
         {
+            $_SESSION['currentRestaurantId'] = $id;
             $db = new Db();
-
+            
             $sql = "SELECT * FROM tbl_restaurants WHERE id = '".$db->conn->real_escape_string($id)."';";
 
 

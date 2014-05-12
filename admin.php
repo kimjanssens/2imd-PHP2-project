@@ -3,10 +3,10 @@
 	$feedbackLogin = "";
 	session_start();
 	if ($_SESSION['type']=='admin') {
+        include_once("classes/Resto.class.php");
+        $r = new Resto();
         if(isset($_POST['btnAddRestaurant']))
         {
-            include_once("classes/Resto.class.php");
-            $r = new Resto();
             $r->Name = $_POST["restaurantname"];
 			$r->Street = $_POST["street"];
 			$r->Number = $_POST["number"];
@@ -30,10 +30,17 @@
 	<link rel="stylesheet" href="css/screen.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="load()">
 	<div class="container">
 		<h2>Add a restaurant</h2>
-		<form action="" method="post">
+		<?php
+		    $r->GetRestaurants();
+		?>
+		
+        <div class="container" id="restaurantdata">
+            
+        </div>
+        <form action="" method="post">
 			<?php  
 				if (isset($error)) {
 					echo "<p class='bg-danger'>$error</p>";
@@ -49,11 +56,9 @@
 			<input type="submit" value="Add" class="btn btn-primary" name="btnAddRestaurant">
 		</form>
 	</div>
-	
 	<script>
-	    $(document).ready(function(){
-	        $('#restaurants').on('change', function(e){
-	           $.ajax({
+	       function load(){
+	            $.ajax({
                     type: "POST",
                     url: "ajax/get_restaurant.php",
                     data: {restaurant: $('#restaurants').val()},
@@ -62,13 +67,14 @@
                 .done(function( msg ){
                     for(var i=0; i<msg.restaurant_name.length; i++)
                     {
-                        $("body").append("<h1>"+msg.restaurant_name+"</h1>");
-                        
+                        $("#restaurantdata").html("<h1>"+msg.restaurant_name+"</h1>");
                     }
                 });
+	        };
+	        $('#restaurants').on('change', function(e){
+	            load();
                 e.preventDefault();
 	        });
-	    });
 	</script>
 </body>
 </html>
