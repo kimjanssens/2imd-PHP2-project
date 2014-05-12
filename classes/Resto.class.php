@@ -125,7 +125,7 @@
 			$results = $db->conn->query($sql);
             echo "<ul id='tables'>";
 			foreach ($results as $result) {
-				echo "<li><a href='tablereservations.php?id=".$result['id']."'>";
+				echo "<li><a href='tablereservations.php?table=".$result['table_nr']."'>";
 				    echo "<span class='tableId' style='display: none;'>".$result['id']."</span>";
 				    echo "<span>Tafel nummer: ".$result['table_nr']."</span>";
 				    echo "<span>Zitplaatsen: ".$result['seats']."</span>";
