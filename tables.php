@@ -16,6 +16,7 @@
                 $r->Seats = $_POST['tableseats'];
                 $r->RestoId = $restaurantId;
                 $r->SaveTables();
+                $feedback = $_POST['tableamount']." tafels met ".$_POST['tableseats']." zitplaatsen toegevoegd.";
             }
         }
     }
@@ -47,6 +48,14 @@
     ?>
     
     <form action="" method="post">
+            <?php  
+				if (isset($error)) {
+					echo "<p class='bg-danger'>$error</p>";
+				}
+				if (!empty($feedback)) {
+					echo "<p class='bg-success'>$feedback</p>";
+				}
+			?>
             <select name="tableamount" id="tableamount">
                 <option value="1">1</option>
                 <option value="2">2</option>
