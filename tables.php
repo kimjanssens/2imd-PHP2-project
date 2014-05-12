@@ -43,8 +43,8 @@
     <?php
         if($_SESSION['type']== 'admin')
         {
+            $r->GetRestaurants();
             echo "<h2>Add tables to ".$restaurantArray[0]['name']."</h2>"; 
-		    $r->GetRestaurants();
             $r->GetAllTables();
         }
     ?>
