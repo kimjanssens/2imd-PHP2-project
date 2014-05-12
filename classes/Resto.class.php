@@ -116,7 +116,7 @@
 
 			foreach ($results as $result) {
 				echo "<li>";
-				echo $result['seats'];
+				echo $result['table_nr'];
 				echo "</li>";
 			}
 		}
@@ -162,9 +162,11 @@
 			$db = new Db();
 			for ($i = 0; $i < $this->m_iAmount; $i++)
             {
-                $sql = "INSERT INTO tbl_tables (restaurant_id, seats) VALUES (
+                $sql = "INSERT INTO tbl_tables (restaurant_id, seats, table_nr, status) VALUES (
 				'".$db->conn->real_escape_string($this->m_iRestoId)."',
-				'".$db->conn->real_escape_string($this->m_iSeats)."'
+				'".$db->conn->real_escape_string($this->m_iSeats)."',
+				'".$db->conn->real_escape_string(3)."',
+				'".$db->conn->real_escape_string(0)."'
 				)";
 			    $db->conn->query($sql);
             }
