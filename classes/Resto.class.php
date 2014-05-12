@@ -8,6 +8,7 @@
 		private $m_iAmount;
 		private $m_iSeats;
 		private $m_iRestoId;
+
 		
 
 		public function __set($p_sProperty, $p_vValue){
@@ -100,6 +101,18 @@
 			}
 		}
 
+		public function GetAllTables(){
+			$db = new Db();
+            $sql = "SELECT * from tbl_tables WHERE restaurant_id = '".$db->conn->real_escape_string($this->m_iRestoId)."';";
+			$results = $db->conn->query($sql);
+
+			foreach ($results as $result) {
+				echo "<li>";
+				echo $result['seatsnumber'];
+				echo "</li>";
+			}
+		}
+
 		public function GetRestaurants()
         {
             $db = new Db();
@@ -109,14 +122,7 @@
             echo "<select id='restaurants'>";
             foreach($result as $restaurant)
             {
-                    if($restaurant['id'] == $_SESSION['currentRestaurantId'])
-                    {
-                        echo "<option selected value='".$restaurant['id']."'>".$restaurant['name']."</option>";
-                    }
-                    else
-                    {
-                        echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
-                    }
+                    echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
             }
             echo "</select>";
         }
