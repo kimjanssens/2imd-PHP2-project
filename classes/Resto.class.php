@@ -137,9 +137,11 @@
                     {
                         echo "<span>Geboekt</span>";
                     }
-                    if($_SESSION['type']=='admin')
+                    if(isset($_SESSION)){
+                    	 if($_SESSION['type']=='admin')
                     {
                         echo "</a><span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
+                    }
                     }
 				echo "</li>";
 			}
