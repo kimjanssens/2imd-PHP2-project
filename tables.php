@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/screen.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	<script src="js/admin.js" type="text/javascript"></script>
 </head>
 <body>
     <?php include_once("includes/nav_include.php"); ?>
@@ -40,7 +41,8 @@
     <?php
         if($_SESSION['type']== 'admin')
         {
-            echo "<h1>".$restaurantArray[0]['name']."</h1>";
+            echo "<h2>Add tables to ".$restaurantArray[0]['name']."</h2>"; 
+		    $r->GetRestaurants();
         }
     ?>
     
