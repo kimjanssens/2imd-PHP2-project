@@ -5,7 +5,7 @@
 			$r = new Resto();
 			$r->RemoveTable($_POST["tableId"]);
 
-            $response["feedback"] = "Tafel verwijderd";
+            $response["feedback"] = "Tafel verwijderd.";
 		} catch (Exception $e) {
 			$response["feedback"] = $e->getMessage();
 		}

@@ -30,8 +30,8 @@ $(document).ready(function(){
             dataType: "json"
         })
         .done(function( msg ){
-            var restaurantdiv = $("#restaurantdata");
-            restaurantdiv.html("<p>"+msg.feedback+"</p>");
+            var restaurantdiv = $(".container");
+            restaurantdiv.append("<p>"+msg.feedback+"</p>");
         });
     });
 });
