@@ -19,6 +19,22 @@ h2{
 	border-radius: 5px;
 	color: #FFFFFF;
 }
+form{
+	padding: 10px;
+	background-color: #E8DDCC;
+	border-radius: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+form input{
+	display: block;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+form p{
+	padding: 5px;
+}
+/*INDEX PAGE*/
 #loginWindow{
 	margin: 0 auto;
 	background-color: #E8DDCC;
@@ -44,30 +60,7 @@ h2{
 	width: 40px;
 	margin-right: 10px;
 }
-form{
-	padding: 10px;
-	background-color: #E8DDCC;
-	border-radius: 10px;
-	border-radius: 5px;
-	margin-bottom: 10px;
-}
-form input{
-	display: block;
-	padding: 5px;
-	margin-bottom: 10px;
-}
-form p{
-	padding: 5px;
-}
-#allRestaurants{
-	-webkit-padding-start: 0px;
-}
-#allRestaurants li{
-	background-color: #E8DDCC;
-	padding-left: 10px;
-	list-style: none;
-	color: #801600;
-}
+/*STARPAGINA*/
 #profile{
 	background-color: #E8D191;
 	padding: 10px;
@@ -79,4 +72,32 @@ form p{
 }
 #profile #logout{
 	float: right;
+}
+#allRestaurants{
+	-webkit-padding-start: 0px;
+}
+#allRestaurants li{
+	background-color: #E8DDCC;
+	padding-left: 10px;
+	list-style: none;
+}
+#allRestaurants li a{
+	text-decoration: none;
+	color: #801600;
+}
+/*TABLERESERVATION*/
+#tables{
+	-webkit-padding-start: 0px;
+}
+#tables li{
+	background-color: #E8DDCC;
+	padding: 10px;
+	list-style: none;
+	color: #801600; 
+	margin-bottom: 5px;
+}
+#tables li span{
+	display: inline-block;
+	width: 33%;
+	text-align: center;
 }
