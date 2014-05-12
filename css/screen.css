@@ -41,9 +41,11 @@ h2{
 	width: 40px;
 	margin-right: 10px;
 }
+#registerForm{
+	padding: 10px;
+}
 form{
 	background-color: #E8DDCC;
-	padding: 10px;
 	border-radius: 10px;
 	border-radius: 5px;
 	margin-bottom: 10px;
