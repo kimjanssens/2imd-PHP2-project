@@ -126,7 +126,7 @@
             echo "<ul id='tables'>";
 			foreach ($results as $result) {
 				echo "<li>";
-				    echo "<span style='display: none;'>".$result['id']."</span>";
+				    echo "<span class='tableId' style='display: none;'>".$result['id']."</span>";
 				    echo "<span>Tafel nummer: ".$result['table_nr']."</span>";
 				    echo "<span>Zitplaatsen: ".$result['seats']."</span>";
 				    if($result['status'] == 0)

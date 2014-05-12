@@ -20,4 +20,8 @@ $(document).ready(function(){
         }
         e.preventDefault();
     });
+    
+    $('.btnRemoveTable').on('click', function(e){
+        
+    });
 });
