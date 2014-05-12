@@ -1,7 +1,6 @@
 <?php  
 	include_once("classes/User.class.php");
 	$feedback = "";
-	$feedbackLogin = "";
 	if (isset($_POST["btnRegister"])) {
 		try {
 			$u = new User();
@@ -25,21 +24,6 @@
 			$error = $e->getMessage();
 		}
 	}
-	
-	if(!empty($_POST['btnLogin']))
-	{
-		try {
-			$u = new User();
-			$u->Name = $_POST['username'];
-			$u->Password = $_POST['loginPassword'];
-			$u->Login();
-			
-            $feedbackLogin = "Inloggen gelukt!";
-			
-		} catch (Exception $e) {
-			$errorLogin= $e->getMessage();
-		}
-	}
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -52,21 +36,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Restaurant app</h1>
-		<h2>Login to continue...</h2>
-		<form action="" method="post">
-			<?php  
-				if (isset($errorLogin)) {
-					echo "<p class='bg-danger'>$errorLogin</p>";
-				}
-				if (!empty($feedbackLogin)) {
-					echo "<p class='bg-success'>$feedbackLogin</p>";
-				}
-			?>
-			<input type="text" name="username" class="form-control" placeholder="Name">
-			<input type="password" name="loginPassword" class="form-control" placeholder="Password">
-			<input type="submit" value="Login" class="btn btn-primary" name="btnLogin">
-		</form>
+		<h2>Fill out this form to register</h2>
 		<form action="" method="post" id="registerForm">
 			<?php  
 				if (isset($error)) {
@@ -81,7 +51,8 @@
 			<input type="text" name="city" class="form-control" placeholder="City" value="<?php if(isset($_POST['city'])){echo $_POST['city'];} ?>">
 			<input type="tel" name="phone" class="form-control" placeholder="Phonenumber" value="<?php if(isset($_POST['phone'])){echo $_POST['phone'];} ?>">
 			<input type="password" name="passwordReg" class="form-control" placeholder="Password">
-			<input type="submit" value="Register" class="btn btn-primary" name="btnRegister">
+			<input type="submit" value="Register" class="btn btn-danger" name="btnRegister">
+			<a href="index.php">Go back</a>
 		</form>
 	</div>
 </body>
