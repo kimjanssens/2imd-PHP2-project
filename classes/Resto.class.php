@@ -125,7 +125,7 @@
 			$results = $db->conn->query($sql);
             echo "<ul id='tables'>";
 			foreach ($results as $result) {
-				echo "<li><a href='restaurant-tables.php?id='".$result['id']."'";
+				echo "<li><a href='restaurant-tables.php?id='".$result['id']."'>";
 				    echo "<span class='tableId' style='display: none;'>".$result['id']."</span>";
 				    echo "<span>Tafel nummer: ".$result['table_nr']."</span>";
 				    echo "<span>Zitplaatsen: ".$result['seats']."</span>";
@@ -139,9 +139,9 @@
                     }
                     if($_SESSION['type']=='admin')
                     {
-                        echo "<span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
+                        echo "</a><span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
                     }
-				echo "</a></li>";
+				echo "</li>";
 			}
 			echo "</ul>";
 		}
