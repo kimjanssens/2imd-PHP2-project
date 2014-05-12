@@ -11,6 +11,9 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.5em;
 }
+h2{
+	color: #E8D191;
+}
 .bg-danger{
 	background-color: #801600;
 	border-radius: 5px;
@@ -22,7 +25,7 @@ body{
 	border-radius: 10px;
 	padding: 10px;
 	margin-top: 20%;
-	width: 50%;
+	width: 400px;
 }
 #fb-login{
 	background-color: #3b5998;
@@ -39,6 +42,9 @@ body{
 	margin-right: 10px;
 }
 form{
+	background-color: #E8DDCC;
+	padding: 10px;
+	border-radius: 10px;
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
