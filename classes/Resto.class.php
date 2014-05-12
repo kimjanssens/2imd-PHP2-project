@@ -137,13 +137,14 @@
                     {
                         echo "<span>Geboekt</span>";
                     }
+                    echo "</a>";
                     if(isset($_SESSION)){
                     	 if($_SESSION['type']=='admin')
-                    {
-                        echo "<span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
+                            {
+                                echo "<span><input type='button' class='btnRemoveTable' value='Verwijder tafel'></span>";
+                            }
                     }
-                    }
-				echo "</a></li>";
+				echo "</li>";
 			}
 			echo "</ul>";
 		}
@@ -205,5 +206,14 @@
 			    $db->conn->query($sql);
             }
 		}
+		
+		public function RemoveTable($tableId)
+        {
+            $db = new Db();
+            
+            $sql = "DELETE FROM tbl_tables WHERE id = ".$db->conn->real_escape_string($tableId).";";
+
+            $db->conn->query($sql);
+        }
 	}
 ?>
