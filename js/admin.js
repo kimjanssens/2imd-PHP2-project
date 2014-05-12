@@ -7,9 +7,9 @@ function load(){
     })
     .done(function( msg ){
         var restaurantdiv = $("#restaurantdata");
-        restaurantdiv.html("<h1>"+msg.restaurant_name+"</h1>");
+        restaurantdiv.html("<h2>"+msg.restaurant_name+"</h2>");
         restaurantdiv.append("<span style='display:none' class='restoId'>"+msg.restaurant_id+"</span>");
-        restaurantdiv.append("<ul><li>"+msg.restaurant_street+" "+msg.restaurant_number+"</li><li>"+msg.restaurant_city+"</li></ul>");
+        restaurantdiv.append("<ul><h2>Adres:</h2><li>"+msg.restaurant_street+" "+msg.restaurant_number+"</li><li>"+msg.restaurant_city+"</li></ul>");
     });
 };
 $(document).ready(function(){
@@ -48,7 +48,8 @@ $(document).ready(function(){
         })
         .done(function( msg ){
             var restaurantdiv = $("#restaurantdata");
-            restaurantdiv.html("<p class='bg-success'>"+msg.feedback+"</p>");
+            $(location).attr('href', 'admin.php');
+            //restaurantdiv.html("<p class='bg-success'>"+msg.feedback+"</p>");
         });
     });
 });
