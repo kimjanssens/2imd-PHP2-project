@@ -49,5 +49,26 @@
 			<input type="submit" value="Add" class="btn btn-primary" name="btnAddRestaurant">
 		</form>
 	</div>
+	
+	<script>
+	    $(document).ready(function(){
+	        $('#restaurants').on('change', function(e){
+	           $.ajax({
+                    type: "POST",
+                    url: "ajax/get_restaurant.php",
+                    data: {restaurant: $('#restaurants').val()},
+                    dataType: "json"
+                })
+                .done(function( msg ){
+                    for(var i=0; i<msg.restaurant_name.length; i++)
+                    {
+                        $("body").append("<h1>"+msg.restaurant_name+"</h1>");
+                        
+                    }
+                });
+                e.preventDefault();
+	        });
+	    });
+	</script>
 </body>
 </html>
