@@ -116,15 +116,15 @@
 
 			foreach ($results as $result) {
 				echo "<li>";
-				    echo $result['table_nr'];
-				    echo $result['seats'];
+				    echo "<span>Table number: ".$result['table_nr']."</span>";
+				    echo "<span>Seats: ".$result['seats']."</span>";
 				    if($result['status'] == 0)
                     {
-                        echo 'Vrij';
+                        echo "<span>Free</span>";
                     }
                     else
                     {
-                        echo 'Geboekt';
+                        echo "<span>Booked</span>";
                     }
 				        
 				echo "</li>";
