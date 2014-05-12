@@ -6,10 +6,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>All restaurants</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/screen.css">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
     <script type="text/javascript">
     FB.init({
@@ -32,9 +32,8 @@
     }
     ?>
     </div>
-    
-		<h2>Choose a restaurant</h2>
-		<ul id="allRestaurants">
+	<h2>Choose a restaurant</h2>
+	<ul id="allRestaurants">
     <?php
     $r->GetAll();
     ?>  
