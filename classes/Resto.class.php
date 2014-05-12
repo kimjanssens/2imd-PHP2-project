@@ -103,7 +103,15 @@
 
 		public function GetAllTables(){
 			$db = new Db();
-            $sql = "SELECT * from tbl_tables WHERE restaurant_id = '".$db->conn->real_escape_string($this->m_iRestoId)."';";
+            
+            if(isset($_SESSION['currentRestaurantId']))
+            {
+                $sql = "SELECT * from tbl_tables WHERE restaurant_id = '".$db->conn->real_escape_string($_SESSION['currentRestaurantId'])."';";
+            }
+            else
+            {
+                $sql = "SELECT * from tbl_tables WHERE restaurant_id = '".$db->conn->real_escape_string($this->m_iRestoId)."';";
+            }
 			$results = $db->conn->query($sql);
 
 			foreach ($results as $result) {
@@ -116,6 +124,7 @@
 		public function GetRestaurants()
         {
             $db = new Db();
+            
             $sql = "SELECT * from tbl_restaurants WHERE user_id = '".$db->conn->real_escape_string($_SESSION['eigenId'])."';";
 			$result = $db->conn->query($sql);
             
