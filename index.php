@@ -51,6 +51,7 @@
 			<input type="text" name="username" class="form-control" placeholder="Username">
 			<input type="password" name="loginPassword" class="form-control" placeholder="Password">
 			<input type="submit" value="Login" class="btn btn-danger" name="btnLogin">
+			<a href="register.php">Click here to register</a>
 		</form>
 	</div>
 </div>
