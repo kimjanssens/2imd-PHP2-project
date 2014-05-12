@@ -1,5 +1,5 @@
 <?php  
-	include_once("classes/Db.class.php");
+	include_once("Db.class.php");
 	class Resto{
 		private $m_sName;
 		private $m_sStreet;
@@ -105,26 +105,32 @@
             $sql = "SELECT * from tbl_restaurants WHERE user_id = '".$db->conn->real_escape_string($_SESSION['eigenId'])."';";
 			$result = $db->conn->query($sql);
             
-            echo "<ul>";
-            echo "<h2>Huidige restauranten</h2>";
+            echo "<select id='restaurants'>";
             foreach($result as $restaurant)
             {
-                echo "<li>";
-                    echo "<a href='restaurantdetails.php?id=".$restaurant['id']."&userid=".$restaurant['user_id']."'>".$restaurant['name']."</a>";
-                echo "</li>";
+                    echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
             }
-            echo "</ul>";
+            echo "</select>";
         }
         
-        public function GetRestaurantDetails($id)
+        public function GetRestaurantDetails($id = null)
         {
             $db = new Db();
+
             $sql = "SELECT * FROM tbl_restaurants WHERE id = '".$db->conn->real_escape_string($id)."';";
-			$result = $db->conn->query($sql);
-            
-            $restaurantArray = $result->fetch_assoc();
-            
-            return $restaurantArray;
+
+
+            $result = $db->conn->query($sql);
+            $result_array=array();
+
+            // LOOP OVER ALL RECORDS AND PUT THEM IN AN ARRAY
+            while($row = $result->fetch_array())
+            {
+                $result_array[] = $row;
+            }
+
+            // RETURN RESULTS AS AN ARRAY
+            return($result_array);
         }
         
         public function SaveTables(){
