@@ -47,8 +47,8 @@
 				$sql2 = "INSERT INTO tbl_reservations (tbl_tables_id, hour, user, amount) VALUES (
 			'".$db->conn->real_escape_string($this->m_iTable)."',
 			'".$db->conn->real_escape_string($this->m_iHours)."',
-			'".$db->conn->real_escape_string($this->m_iPeople)."',
-			'".$db->conn->real_escape_string($this->m_sUser)."');";
+			'".$db->conn->real_escape_string($this->m_sUser)."',
+			'".$db->conn->real_escape_string($this->m_iPeople)."');";
 			$db->conn->query($sql2);
 			}else{
 				throw new Exception("This hour has already been booked");
@@ -56,7 +56,7 @@
 		}
 		public function GetAll(){
 			$db = new Db();
-			$sql = "SELECT * FROM tbl_reservations";
+			$sql = "SELECT * FROM tbl_reservations WHERE tbl_tables_id = '".$db->conn->real_escape_string($this->m_iTable)."'";
 			$results = $db->conn->query($sql);
 			foreach ($results as $result) {
 				echo "<li>";
