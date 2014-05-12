@@ -31,6 +31,8 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
 <body onload="load()">
+	
+	<?php include_once("includes/nav_include.php"); ?>
 	<div class="container">
 		<h2>Add a restaurant</h2>
 		<?php

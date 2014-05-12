@@ -1,15 +1,16 @@
 <?php
 	if (isset($_POST["restaurant"])) {
 		try {
+			session_start();
 			include_once('../classes/Resto.class.php');
 			$r = new Resto();
 			$check = $r->GetRestaurantDetails($_POST["restaurant"]);
+			
+			$_SESSION['currentRestaurantId'] = $_POST["restaurant"];
 
-			$teller = 0;
 			foreach($check as $field)
             {
-                $response["restaurant_name"][$teller] = $field['name'];
-                $teller++;
+                $response["restaurant_name"] = $field['name'];
             }
 		} catch (Exception $e) {
 			$response["restaurant_name"] = $e->getMessage();

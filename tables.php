@@ -8,7 +8,6 @@
         if($_SESSION['type']== 'admin')
         {
             $restaurantId = $_SESSION['currentRestaurantId'];
-            
             $restaurantArray = $r->GetRestaurantDetails($restaurantId);
             
             if(isset($_POST['btnAddTable']))
@@ -22,7 +21,7 @@
     }
     else
     {
-        header('Location: adminlogin.php');
+        header('Location: index.php');
     }
 ?><!doctype html>
 <html lang="en">
@@ -35,12 +34,13 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
 <body>
+    <?php include_once("includes/nav_include.php"); ?>
     <div class="container">
 	
     <?php
         if($_SESSION['type']== 'admin')
         {
-            echo "<h1>".$restaurantArray['name']."</h1>";
+            echo "<h1>".$restaurantArray[0]['name']."</h1>";
         }
     ?>
     

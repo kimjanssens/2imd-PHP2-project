@@ -8,6 +8,7 @@
 		private $m_iAmount;
 		private $m_iSeats;
 		private $m_iRestoId;
+		
 
 		public function __set($p_sProperty, $p_vValue){
 			switch ($p_sProperty) {
@@ -113,16 +114,17 @@
             echo "</select>";
         }
         
-        public function GetRestaurantDetails($id = null)
+        public function GetRestaurantDetails($id)
         {
-            $_SESSION['currentRestaurantId'] = $id;
             $db = new Db();
+            
+            $_SESSION['currentRestaurantId'] = $id;
             
             $sql = "SELECT * FROM tbl_restaurants WHERE id = '".$db->conn->real_escape_string($id)."';";
 
-
             $result = $db->conn->query($sql);
             $result_array=array();
+            
 
             // LOOP OVER ALL RECORDS AND PUT THEM IN AN ARRAY
             while($row = $result->fetch_array())
