@@ -54,5 +54,15 @@
 				throw new Exception("This hour has already been booked");
 			}
 		}
+		public function GetAll(){
+			$db = new Db();
+			$sql = "SELECT * FROM tbl_reservations";
+			$results = $db->conn->query($sql);
+			foreach ($results as $result) {
+				echo "<li>";
+				echo "Reservation at ".$result['hour']."u for ".$result['amount']." by ".$result['user'];
+				echo "</li>";
+			}
+		}
 	}
 ?>

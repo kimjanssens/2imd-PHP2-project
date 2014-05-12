@@ -1,9 +1,9 @@
 <?php
 	include_once("classes/Reservation.class.php");
 	$table = $_GET['table'];
+	$r = new Reservation();
 	if (!empty($_POST)) {
 		try {
-			$r = new Reservation();
 			$r->Table = $table;
 			$r->Hours = $_POST['hours'];
 			$r->People = $_POST['people'];
@@ -26,7 +26,11 @@
 <body>
 <div class="container">
 	<h2>Choose your reservation time for this table</h2>
-
+	<ul id="tables">
+		<?php
+		$r->Getall();
+		?>
+	</ul>
 	<form action="#" method="post">
 		<?php
 	if (isset($feedback)) {
