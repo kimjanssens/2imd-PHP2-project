@@ -116,7 +116,17 @@
 
 			foreach ($results as $result) {
 				echo "<li>";
-				echo $result['table_nr'];
+				    echo $result['table_nr'];
+				    echo $result['seats'];
+				    if($result['status'] == 0)
+                    {
+                        echo 'Vrij';
+                    }
+                    else
+                    {
+                        echo 'Geboekt';
+                    }
+				        
 				echo "</li>";
 			}
 		}
@@ -131,7 +141,14 @@
             echo "<select id='restaurants'>";
             foreach($result as $restaurant)
             {
-                    echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    if($restaurant['id'] == $_SESSION['currentRestaurantId'])
+                    {
+                        echo "<option selected value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    }
+                    else
+                    {
+                        echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    }
             }
             echo "</select>";
         }
