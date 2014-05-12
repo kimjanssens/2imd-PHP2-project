@@ -8,6 +8,7 @@
 		private $m_iAmount;
 		private $m_iSeats;
 		private $m_iRestoId;
+		private $m_iTablenumber;
 
 		
 
@@ -52,6 +53,12 @@
 				case "RestoId":
 					$this->m_iRestoId = $p_vValue;
 					break;
+				case "Tablenumber":
+					if (empty($p_vValue)) {
+						throw new Exception("Tafel nummer veld is leeg.");
+					}
+					$this->m_iTablenumber = $p_vValue;
+					break;
 			}
 		}
 		public function __get($p_sProperty){
@@ -73,6 +80,9 @@
 					break;
 				case "RestoId":
 					return $this->m_iRestoId;
+					break;
+				case "Tablenumber":
+					return $this->m_iTablenumber;
 					break;
 			}
 		}
@@ -113,22 +123,23 @@
                 $sql = "SELECT * from tbl_tables WHERE restaurant_id = '".$db->conn->real_escape_string($this->m_iRestoId)."';";
             }
 			$results = $db->conn->query($sql);
-
+            echo "<ul id='tables'>";
 			foreach ($results as $result) {
 				echo "<li>";
-				    echo "<span>Table number: ".$result['table_nr']."</span>";
-				    echo "<span>Seats: ".$result['seats']."</span>";
+				    echo "<span>Tafel nummer: ".$result['table_nr']."</span>";
+				    echo "<span>Zitplaatsen: ".$result['seats']."</span>";
 				    if($result['status'] == 0)
                     {
-                        echo "<span>Free</span>";
+                        echo "<span>Vrij</span>";
                     }
                     else
                     {
-                        echo "<span>Booked</span>";
+                        echo "<span>Geboekt</span>";
                     }
 				        
 				echo "</li>";
 			}
+			echo "</ul>";
 		}
 
 		public function GetRestaurants()
@@ -182,7 +193,7 @@
                 $sql = "INSERT INTO tbl_tables (restaurant_id, seats, table_nr, status) VALUES (
 				'".$db->conn->real_escape_string($this->m_iRestoId)."',
 				'".$db->conn->real_escape_string($this->m_iSeats)."',
-				'".$db->conn->real_escape_string(3)."',
+				'".$db->conn->real_escape_string($this->m_iTablenumber+$i)."',
 				'".$db->conn->real_escape_string(0)."'
 				)";
 			    $db->conn->query($sql);

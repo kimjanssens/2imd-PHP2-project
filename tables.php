@@ -14,6 +14,7 @@
             {
                 $r->Amount = $_POST['tableamount'];
                 $r->Seats = $_POST['tableseats'];
+                $r->Tablenumber = $_POST['tablenumber'];
                 $r->RestoId = $restaurantId;
                 $r->SaveTables();
                 $feedback = $_POST['tableamount']." tafels met ".$_POST['tableseats']." zitplaatsen toegevoegd.";
@@ -69,6 +70,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
+            <input type="text" name="tablenumber" class="form-control" placeholder="Eerstvolgende tafel nummer">
 			<input type="text" name="tableseats" class="form-control" placeholder="Aantal zitplaatsen">
 			<input type="submit" value="Voeg tafels toe" class="btn btn-primary" name="btnAddTable">
 		</form>
