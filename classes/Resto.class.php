@@ -109,7 +109,14 @@
             echo "<select id='restaurants'>";
             foreach($result as $restaurant)
             {
-                    echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    if($restaurant['id'] == $_SESSION['currentRestaurantId'])
+                    {
+                        echo "<option selected value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    }
+                    else
+                    {
+                        echo "<option value='".$restaurant['id']."'>".$restaurant['name']."</option>";
+                    }
             }
             echo "</select>";
         }
