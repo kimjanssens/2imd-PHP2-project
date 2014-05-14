@@ -78,6 +78,7 @@
 		
 		public function Login()
 		{
+			session_destroy();
 			$db = new Db();
 			$sql = "SELECT * from tbl_users WHERE name = '".$db->conn->real_escape_string($this->m_sName)."' AND password = '".$db->conn->real_escape_string($this->m_sPassword)."';";
 			

@@ -6,8 +6,11 @@
         include_once("classes/Resto.class.php");
         $r = new Resto();
         
-        $restaurantId = $_SESSION['currentRestaurantId'];
-        $restaurantArray = $r->GetRestaurantDetails($restaurantId);
+        if(isset($_SESSION['currentRestaurantId']))
+        {
+            $restaurantId = $_SESSION['currentRestaurantId'];
+            $restaurantArray = $r->GetRestaurantDetails($restaurantId);
+        }
 	}
 	else
     {
