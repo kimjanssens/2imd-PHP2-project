@@ -44,11 +44,12 @@
 			$result = mysqli_query($db->conn, $sql);
 			$num_rows = mysqli_num_rows($result);
 			if ($num_rows < 1) {
-				$sql2 = "INSERT INTO tbl_reservations (tbl_tables_id, hour, user, amount) VALUES (
+				$sql2 = "INSERT INTO tbl_reservations (tbl_tables_id, hour, user, amount, time) VALUES (
 			'".$db->conn->real_escape_string($this->m_iTable)."',
 			'".$db->conn->real_escape_string($this->m_iHours)."',
 			'".$db->conn->real_escape_string($this->m_sUser)."',
-			'".$db->conn->real_escape_string($this->m_iPeople)."');";
+			'".$db->conn->real_escape_string($this->m_iPeople)."',
+			now());";
 			$db->conn->query($sql2);
 			}else{
 				throw new Exception("This hour has already been booked");
@@ -63,6 +64,11 @@
 				echo "Reservation at ".$result['hour']."u for ".$result['amount']." by ".$result['user'];
 				echo "</li>";
 			}
+		}
+		public function Remove(){
+			$db = new Db();
+			$sql = "DELETE FROM tbl_reservations WHERE time < getdate()";
+			$db->conn->query($sql);
 		}
 	}
 ?>
