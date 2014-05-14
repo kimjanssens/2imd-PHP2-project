@@ -1,15 +1,18 @@
 <?php
+	session_start();
 	include_once("classes/Reservation.class.php");
 	$table = $_GET['table'];
 	$r = new Reservation();
+	$r->Remove();
+	$r->Table = $table;
 	if (!empty($_POST)) {
 		try {
 			$r->Table = $table;
 			$r->Hours = $_POST['hours'];
 			$r->People = $_POST['people'];
-			$r->User = "kim";
+			$r->User = $_SESSION['name'];
 			$r->Save();
-			$feedback = "Thank you for your reservation";
+			$feedback = "Thank you for your reservation ".$_SESSION['name'];
 		} catch (Exception $e) {
 			$error = $e->getMessage();
 		}
