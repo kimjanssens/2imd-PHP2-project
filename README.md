@@ -8,25 +8,25 @@ beheren via uw applicatie. Volgende features moeten minimaal voorzien
 zijn:
 
 ######BACKEND
-● inloggen als restauranthouder
-● één of meerdere restaurants aanmaken
-● tafelindeling van een restaurant kunnen beheren via een
+* inloggen als restauranthouder
+* één of meerdere restaurants aanmaken
+* tafelindeling van een restaurant kunnen beheren via een
 gebruiksvriendelijke backend
-● tafels benoemen, verwijderen, toevoegen
-● de actuele menu’s beheren moet mogelijk zijn
-● reservaties bekijken of annuleren
-● reservaties zelf doorvoeren in de backend (hoe lang moet een
+* tafels benoemen, verwijderen, toevoegen
+* de actuele menu’s beheren moet mogelijk zijn
+* reservaties bekijken of annuleren
+* reservaties zelf doorvoeren in de backend (hoe lang moet een
 tafeltje bezet gehouden worden?)
-● gebruik van Twitter bootstrap is toegestaan voor uw backend
+* gebruik van Twitter bootstrap is toegestaan voor uw backend
 
 ######FRONTEND
-● registratie als restauranthouder
-● een gebruiker moet makkelijk een vrije tafel kunnen boeken op
+* registratie als restauranthouder
+* een gebruiker moet makkelijk een vrije tafel kunnen boeken op
 basis van het aantal personen (zorg dat een restaurant dit
 makkelijk kan linken of integreren in hun bestaande of nog te
 bouwen website). Facebook login zou hier op z’n plaats zijn om
 snel en betrouwbaar reservaties binnen te krijgen.
-● probleem: een drukbezocht restaurant krijgt soms de vraag om
+* probleem: een drukbezocht restaurant krijgt soms de vraag om
 mensen op te bellen zodra er een tafeltje vrij komt. Vaak is de
 tijd er echter niet om mensen op te bellen tijdens piekmomenten.
 Zorg dat bezoekers makkelijk via hun mobiel toestel live de
