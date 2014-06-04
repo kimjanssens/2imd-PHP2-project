@@ -1,9 +1,37 @@
 PHP
 ===
 
-##Project desciption
-1. You have to register, so that people who don't show up for a reservation may get a warning or that the owner of the restaurant knows who is in his restaurant. If you have already registered you can just login.
-2. You get an overview of all the tables in the restaurant, and you can see which tables are occupied or free.
-3. Select a free table, now that you reserved your table. There will be a card where you can choose your order(what you wanna eat or drink). Note: this doesn't make the order permanent, that will happen when you enter the restaurant.
-4. When you enter the restaurant a waiter will confirm you reservation and your order will go through.
-5. When you pay your bill, the table will become free again for other reservations.
+####Project assignment desciption
+How to improve the restaurant business?
+Een webapplicatie bouwen voor restauranthouders. De webapplicatie (verzin een naam!) moet restauranteigenaars in staat stellen te registreren en hun zaak te
+beheren via uw applicatie. Volgende features moeten minimaal voorzien
+zijn:
+
+######BACKEND
+● inloggen als restauranthouder
+● één of meerdere restaurants aanmaken
+● tafelindeling van een restaurant kunnen beheren via een
+gebruiksvriendelijke backend
+● tafels benoemen, verwijderen, toevoegen
+● de actuele menu’s beheren moet mogelijk zijn
+● reservaties bekijken of annuleren
+● reservaties zelf doorvoeren in de backend (hoe lang moet een
+tafeltje bezet gehouden worden?)
+● gebruik van Twitter bootstrap is toegestaan voor uw backend
+
+######FRONTEND
+● registratie als restauranthouder
+● een gebruiker moet makkelijk een vrije tafel kunnen boeken op
+basis van het aantal personen (zorg dat een restaurant dit
+makkelijk kan linken of integreren in hun bestaande of nog te
+bouwen website). Facebook login zou hier op z’n plaats zijn om
+snel en betrouwbaar reservaties binnen te krijgen.
+● probleem: een drukbezocht restaurant krijgt soms de vraag om
+mensen op te bellen zodra er een tafeltje vrij komt. Vaak is de
+tijd er echter niet om mensen op te bellen tijdens piekmomenten.
+Zorg dat bezoekers makkelijk via hun mobiel toestel live de
+bezetting van tafeltjes kunnen bekijken.
+Gebruiksvriendelijkheid moet absoluut centraal staan. Ga enkel voor
+de best mogelijke applicatie, niets minder. Een mooi uitgewerkte
+applicatie kan je portfolio naar een volgend niveau tillen en
+hopelijk restaurants overtuigen om gebruik te maken van je diensten.
